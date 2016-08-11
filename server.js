@@ -35,8 +35,8 @@ function handleRequest1(req, response){
 
 var server1 = http.createServer(handleRequest1);
 
-server1.listen(PORT, function(){
-    console.log("Server listening on: http://localhost:%s", PORT);
+server1.listen(PORT1, function(){
+    console.log("Server listening on: http://localhost:%s", PORT1);
 });
 /* END CAMERA 1 LISTENER */
 
@@ -50,7 +50,7 @@ function handleRequest2(req, response){
 
 var server2 = http.createServer(handleRequest1);
 
-server2.listen(PORT, function(){
-    console.log("Server listening on: http://localhost:%s", PORT);
+server2.listen(PORT2, function(){
+    console.log("Server listening on: http://localhost:%s", PORT2);
 });
-/* END CAMERA 1 LISTENER */
+/* END CAMERA 2 LISTENER */
