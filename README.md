@@ -77,3 +77,5 @@ To restart the bridge...
 ```
 forever restart /home/pi/domoticz-cam-bridge/server.js
 ```
+
+See https://github.com/foreverjs/forever for proper 'forever' usage.
