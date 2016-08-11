@@ -1,7 +1,14 @@
 # domoticz-cam-bridge
 IP Camera HTTP Alarm to Domoticz Virtual Switch
 
-Clone the repo, then head to {path}/domoticz-cam-bridge/ and bring in the dependencies by running...
+Clone the repo...
+
+```
+cd ~/
+git clone https://github.com/PatchworkBoy/domoticz-cam-bridge.git
+```
+
+Then head to {path}/domoticz-cam-bridge/ and bring in the dependencies by running...
 
 ```
 npm install
@@ -22,7 +29,7 @@ Launch with forever (replace {path}):
 
 ```
 sudo npm install -g forever  //if you don't already have it!
-forever start {path}/domoticz-cam-bridge/server.js
+forever start ~/domoticz-cam-bridge/server.js
 ```
 
 Run at boot on Jessie via...
@@ -31,7 +38,7 @@ Run at boot on Jessie via...
 sudo pico /lib/systemd/system/domoticz-cam-bridge.service
 ```
 
-Copy & Paste in (replace {path})...
+Copy & Paste in...
 ```
 [Unit]
 Description=Domotic Cam Bridge Service
@@ -40,7 +47,7 @@ After=multi-user.target
 [Service]
 User=pi
 Type=idle
-ExecStart=/usr/bin/forever start {path}/domoticz-cam-bridge/server.js
+ExecStart=/usr/bin/forever start /home/pi/domoticz-cam-bridge/server.js
 
 [Install]
 WantedBy=multi-user.target
