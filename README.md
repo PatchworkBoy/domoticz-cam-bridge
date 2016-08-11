@@ -8,9 +8,10 @@ cd ~/
 git clone https://github.com/PatchworkBoy/domoticz-cam-bridge.git
 ```
 
-Then head to {path}/domoticz-cam-bridge/ and bring in the dependencies by running...
+Then head to ~/domoticz-cam-bridge/ and bring in the dependencies by running...
 
 ```
+cd ~/domoticz-cam-bridge/
 npm install
 ```
 
