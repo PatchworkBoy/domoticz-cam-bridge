@@ -17,10 +17,10 @@
     "Domoticz"
   ],
   "engines": {
-    "node": ">=0.12.0",
+    "node": ">=0.12.0"
   },
   "dependencies": {
-    "request": "2.65.x",
+    "request": "2.65.x"
   },
   "author": "PatchworkBoy (aka Marci) <apatchworkboy@gmail.com> (https://github.com/patchworkboy)",
   "license": "CC0",
