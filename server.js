@@ -6,7 +6,7 @@ var request = require('request');
 const PORT1=8091; // We set up a port per camera... this is the port for Cam1
 const IDX1=98; // and this is the virtual switch for that camera (Cam1) in Domoticz
 const PORT2=8092; // and this is the port for Cam2
-const IDX2=102; // and this is the virtual switch for that camera (Cam1) in Domoticz
+const IDX2=102; // and this is the virtual switch for that camera (Cam2) in Domoticz
 
 
 function getDateTime() {
