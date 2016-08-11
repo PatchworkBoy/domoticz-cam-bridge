@@ -56,7 +56,7 @@ sudo systemctl enable domoticz-cam-bridge.service
 sudo reboot
 ```
 
-You now no longer need to manually start Homebridge. It should run automatically at boot up.
+You now no longer need to manually start the cam bridge. It should run automatically at boot up.
 
 To check bridge Status...
 
