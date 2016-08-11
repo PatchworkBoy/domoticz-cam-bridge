@@ -48,7 +48,7 @@ function handleRequest2(req, response){
     });
 }
 
-var server2 = http.createServer(handleRequest1);
+var server2 = http.createServer(handleRequest2);
 
 server2.listen(PORT2, function(){
     console.log("Server listening on: http://localhost:%s", PORT2);
