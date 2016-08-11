@@ -75,5 +75,5 @@ sudo systemctl status domoticz-cam-bridge.service -l
 To restart the bridge...
 
 ```
-sudo systemctl restart domoticz-cam-bridge
+forever restart /home/pi/domoticz-cam-bridge/server.js
 ```
