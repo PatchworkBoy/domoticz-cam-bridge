@@ -15,8 +15,8 @@ The script will send the 'On' command to Domoticz while it detects motion, and D
 
 Set each IP Camera's HTTP Alarm to the relevant IP & Port via the camera's GUI or CLI:
 
-Cam1 - http://[domoticzip]:8091
-Cam2 - http://[domoticzip]:8092
+- Cam1: http://[domoticzip]:8091
+- Cam2: http://[domoticzip]:8092
 
 Launch with forever (replace {path}):
 
