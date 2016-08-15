@@ -1,5 +1,5 @@
 # domoticz-cam-bridge
-IP Camera HTTP & FTP Alarm to Domoticz Virtual Switch
+A quick bodge of an unrefined IP Camera HTTP & FTP Alarm to Domoticz Virtual Switch Bridge
 
 Clone the repo...
 
