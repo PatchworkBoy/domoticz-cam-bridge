@@ -105,8 +105,8 @@ sudo systemctl status domoticz-ftp-cam-bridge.service -l
 To restart the bridge...
 
 ```
-forever restart /home/pi/domoticz-http-cam-bridge/server.js
-forever restart /home/pi/domoticz-ftp-cam-bridge/server.js
+forever restart /home/pi/domoticz-cam-bridge/server_http.js
+forever restart /home/pi/domoticz-cam-bridge/server_ftp.js
 ```
 
 See https://github.com/foreverjs/forever for proper 'forever' usage.
