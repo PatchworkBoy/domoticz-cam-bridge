@@ -32,7 +32,8 @@ var idx2 = '90';						// Domoticz Device IDX #2
 var ftpport = '8089';					// Port on which to create FTP server #1 - set IDX #1 device to connect to ftp://ipaddress:8089
 var ftpport2 = '8090';					// Port on which to create FTP server #2 - set IDX #2 device to connect to ftp://ipaddress:8090
 var ftpip = '127.0.0.1';				// IP Address which the FTP Server will be bound to
-var ftpuploads = '/home/pi/uploads/';	// Folder to which ftp uploads can be saved - needs to exist and be writable
+var basefolder = '/home/pi/';
+var ftpuploads = '/uploads/';	// basefolder + ftpuploads (/home/pi/uploads/)Folder to which ftp uploads can be saved - needs to exist and be writable
 
 
 /* cam 1 ftp server */
@@ -47,14 +48,14 @@ var ftpuploads = '/home/pi/uploads/';	// Folder to which ftp uploads can be save
 	    return ftpuploads;
 	  },
 	  getRoot: function() {
-	    return process.cwd();
+	    return basefolder;
 	  },
 	  pasvPortRangeStart: 1025,
 	  pasvPortRangeEnd: 1050,
 	  tlsOptions: foptions.tls,
 	  allowUnauthorizedTls: true,
-	  useWriteFile: true,
-	  useReadFile: true,
+	  useWriteFile: false,
+	  useReadFile: false,
 	  uploadMaxSlurpSize: 7000
 	});
 
@@ -63,13 +64,29 @@ var ftpuploads = '/home/pi/uploads/';	// Folder to which ftp uploads can be save
 	});
 
 	fserver.on('client:connected', function(connection) {
-	  var thetime
+	  var thetime;
+	  var username = null;
 	  thetime = getDateTime();
 	  console.log(thetime + ': FTP Client #1 Connected');
 	  // As soon as a client connects, it triggers the below. The client doesn't
 	  // need to do anything or upload anything, just establish a connection
 	  request.get('http://'+host+':'+port+'/json.htm?type=command&param=switchlight&idx='+idx1+'&switchcmd=On').on('error', function(err){
 	        console.log(thetime + ": #1 Couldn't connect to Domoticz - " + err);
+	  });
+	  connection.on('command:user', function(user, success, failure) {
+	    if (user) {
+	      username = user;
+	      success();
+	    } else {
+	      failure();
+	    }
+	  });
+	  connection.on('command:pass', function(pass, success, failure) {
+	    if (pass) {
+	      success(username);
+	    } else {
+	      failure();
+	    }
 	  });
 	});
 	fserver.debugging = 4;
@@ -90,14 +107,14 @@ var ftpuploads = '/home/pi/uploads/';	// Folder to which ftp uploads can be save
 	    return ftpuploads;
 	  },
 	  getRoot: function() {
-	    return process.cwd();
+	    return basefolder;
 	  },
 	  pasvPortRangeStart: 1025,
 	  pasvPortRangeEnd: 1050,
 	  tlsOptions: foptions.tls,
 	  allowUnauthorizedTls: true,
-	  useWriteFile: true,
-	  useReadFile: true,
+	  useWriteFile: false,
+	  useReadFile: false,
 	  uploadMaxSlurpSize: 7000
 	});
 
@@ -106,13 +123,29 @@ var ftpuploads = '/home/pi/uploads/';	// Folder to which ftp uploads can be save
 	});
 
 	fserver2.on('client:connected', function(connection) {
-	  var thetime
+	  var thetime;
+	  var username = null;
 	  thetime = getDateTime();
 	  console.log(thetime + ': FTP Client #2 Connected');
 	  // As soon as a client connects, it triggers the below. The client doesn't
 	  // need to do anything or upload anything, just establish a connection
 	  request.get('http://'+host+':'+port+'/json.htm?type=command&param=switchlight&idx='+idx2+'&switchcmd=On').on('error', function(err){
 	        console.log(thetime + ": #2 Couldn't connect to Domoticz - " + err);
+	  });
+	  connection.on('command:user', function(user, success, failure) {
+	    if (user) {
+	      username = user;
+	      success();
+	    } else {
+	      failure();
+	    }
+	  });
+	  connection.on('command:pass', function(pass, success, failure) {
+	    if (pass) {
+	      success(username);
+	    } else {
+	      failure();
+	    }
 	  });
 	});
 	fserver2.debugging = 4;
