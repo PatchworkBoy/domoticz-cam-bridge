@@ -70,7 +70,7 @@ var ftpuploads = '/uploads/';	// basefolder + ftpuploads (/home/pi/uploads/)Fold
 	  console.log(thetime + ': FTP Client #1 Connected');
 	  // As soon as a client connects, it triggers the below. The client doesn't
 	  // need to do anything or upload anything, just establish a connection
-	  request.get('http://'+host+':'+port+'/json.htm?type=command&param=switchlight&idx='+idx1+'&switchcmd=On').on('error', function(err){
+	  request.get('http://'+hostaddr+':'+port+'/json.htm?type=command&param=switchlight&idx='+idx1+'&switchcmd=On').on('error', function(err){
 	        console.log(thetime + ": #1 Couldn't connect to Domoticz - " + err);
 	  });
 	  connection.on('command:user', function(user, success, failure) {
@@ -129,7 +129,7 @@ var ftpuploads = '/uploads/';	// basefolder + ftpuploads (/home/pi/uploads/)Fold
 	  console.log(thetime + ': FTP Client #2 Connected');
 	  // As soon as a client connects, it triggers the below. The client doesn't
 	  // need to do anything or upload anything, just establish a connection
-	  request.get('http://'+host+':'+port+'/json.htm?type=command&param=switchlight&idx='+idx2+'&switchcmd=On').on('error', function(err){
+	  request.get('http://'+hostaddr+':'+port+'/json.htm?type=command&param=switchlight&idx='+idx2+'&switchcmd=On').on('error', function(err){
 	        console.log(thetime + ": #2 Couldn't connect to Domoticz - " + err);
 	  });
 	  connection.on('command:user', function(user, success, failure) {
