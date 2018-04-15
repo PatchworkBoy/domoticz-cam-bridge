@@ -25,10 +25,12 @@ var fserver;
 var fserver2;
 
 var hostaddr = '127.0.0.1';				// Domoticz IP
-var port = '8080';						// Domoticz Port
-var idx1 = '89';						// Domoticz Device IDX #1
-var idx2 = '90';						// Domoticz Device IDX #2
+var port = '8080';					// Domoticz Port
+var idx1 = '89';					// Domoticz Device IDX #1
+var idx2 = '90';					// Domoticz Device IDX #2
 
+var ftpuser = 'ausername';                              // FTP Username
+var ftppass = 'apassword';                              // FTP Password
 var ftpport = '8089';					// Port on which to create FTP server #1 - set IDX #1 device to connect to ftp://ipaddress:8089
 var ftpport2 = '8090';					// Port on which to create FTP server #2 - set IDX #2 device to connect to ftp://ipaddress:8090
 var ftpip = '127.0.0.1';				// IP Address which the FTP Server will be bound to
@@ -74,7 +76,7 @@ var ftpuploads = '/uploads/';	// basefolder + ftpuploads (/home/pi/uploads/)Fold
 	        console.log(thetime + ": #1 Couldn't connect to Domoticz - " + err);
 	  });
 	  connection.on('command:user', function(user, success, failure) {
-	    if (user) {
+	    if (user == ftpuser) {
 	      username = user;
 	      success();
 	    } else {
@@ -82,7 +84,7 @@ var ftpuploads = '/uploads/';	// basefolder + ftpuploads (/home/pi/uploads/)Fold
 	    }
 	  });
 	  connection.on('command:pass', function(pass, success, failure) {
-	    if (pass) {
+	    if (pass == ftppass) {
 	      success(username);
 	    } else {
 	      failure();
@@ -133,7 +135,7 @@ var ftpuploads = '/uploads/';	// basefolder + ftpuploads (/home/pi/uploads/)Fold
 	        console.log(thetime + ": #2 Couldn't connect to Domoticz - " + err);
 	  });
 	  connection.on('command:user', function(user, success, failure) {
-	    if (user) {
+	    if (user == ftpuser) {
 	      username = user;
 	      success();
 	    } else {
@@ -141,7 +143,7 @@ var ftpuploads = '/uploads/';	// basefolder + ftpuploads (/home/pi/uploads/)Fold
 	    }
 	  });
 	  connection.on('command:pass', function(pass, success, failure) {
-	    if (pass) {
+	    if (pass == ftppass) {
 	      success(username);
 	    } else {
 	      failure();
